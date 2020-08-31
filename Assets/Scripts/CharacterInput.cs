@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class CharacterInput : MonoBehaviour, IMoveInput, IJumpInput
 {
     //commands
-    public Command jumpInput;
+    public Command JumpInput;
     
     PlayerInputActions inputActions;
     
@@ -37,9 +37,9 @@ public class CharacterInput : MonoBehaviour, IMoveInput, IJumpInput
         Debug.Log( $"Jump button pressed,{context.ReadValue<float>()}" );
         IsPressingJump = context.ReadValue<float>() >= .2f;
 
-        if ( jumpInput != null && IsPressingJump)
+        if ( JumpInput != null )
         {
-            jumpInput.Execute();
+            JumpInput.Execute();
         }
     }
 }
