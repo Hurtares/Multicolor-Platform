@@ -1,18 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    PlayerInputActions inputActions;
+
+    void Awake()
     {
-        
+        inputActions = new PlayerInputActions();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
-        
+        inputActions.Enable();
+        inputActions.Player.Jump.performed += OnJumpButton;
+    }
+
+    void OnDisable()
+    {
+        inputActions.Disable();
+        inputActions.Player.Jump.performed -= OnJumpButton;
+    }
+
+    void OnJumpButton( InputAction.CallbackContext context )
+    {
+        Debug.Log($"Jump button pressed,{context.ReadValue<float>()}");
     }
 }
