@@ -4,9 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class CharacterInput : MonoBehaviour, IMoveInput, IJumpInput
 {
+    //commands
+    public Command jumpInput;
+    
     PlayerInputActions inputActions;
+    
+    //inputs
+    public Vector2 MoveDirection { get; private set; }
+    public bool IsPressingJump { get; private set; }
 
     void Awake()
     {
@@ -27,6 +34,12 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJumpButton( InputAction.CallbackContext context )
     {
-        Debug.Log($"Jump button pressed,{context.ReadValue<float>()}");
+        Debug.Log( $"Jump button pressed,{context.ReadValue<float>()}" );
+        IsPressingJump = context.ReadValue<float>() >= .2f;
+
+        if ( jumpInput != null && IsPressingJump)
+        {
+            jumpInput.Execute();
+        }
     }
 }
