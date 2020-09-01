@@ -228,6 +228,12 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!50 &713070880 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8162935858145765662, guid: 66dd4bb66e5d2ea448645817f4f1d338,
+    type: 3}
+  m_PrefabInstance: {fileID: 8162935857889365100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1003180202
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +698,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4597220634890692915, guid: 66dd4bb66e5d2ea448645817f4f1d338,
+        type: 3}
+      propertyPath: Rigidbody2D
+      value: 
+      objectReference: {fileID: 713070880}
     - target: {fileID: 8162935858145765657, guid: 66dd4bb66e5d2ea448645817f4f1d338,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -751,6 +762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162935858145765662, guid: 66dd4bb66e5d2ea448645817f4f1d338,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66dd4bb66e5d2ea448645817f4f1d338, type: 3}
