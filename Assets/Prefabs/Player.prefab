@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8162935858145765663}
   - component: {fileID: 8162935858145765662}
   - component: {fileID: 914171676867910895}
+  - component: {fileID: 713070884}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -141,5 +143,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dda5cc7b06555a40a7df69836d64f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpInput: {fileID: 713070884}
+--- !u!114 &713070884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162935858145765661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c92a28e2267f6243a097079800bcecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

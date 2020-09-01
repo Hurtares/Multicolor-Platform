@@ -7,13 +7,14 @@ using UnityEngine.InputSystem;
 public class CharacterInput : MonoBehaviour, IMoveInput, IJumpInput
 {
     //commands
-    public Command JumpInput;
-    
-    PlayerInputActions inputActions;
+    public Command MoveInput;
     
     //inputs
     public Vector2 MoveDirection { get; private set; }
     public bool IsPressingJump { get; private set; }
+
+    //inputSystem
+    PlayerInputActions inputActions;
 
     void Awake()
     {
@@ -24,22 +25,33 @@ public class CharacterInput : MonoBehaviour, IMoveInput, IJumpInput
     {
         inputActions.Enable();
         inputActions.Player.Jump.performed += OnJumpButton;
+        inputActions.Player.Movement.performed += OnMoveButton;
     }
 
     void OnDisable()
     {
         inputActions.Disable();
         inputActions.Player.Jump.performed -= OnJumpButton;
+        inputActions.Player.Movement.performed -= OnMoveButton;
+    }
+
+    void OnMoveButton( InputAction.CallbackContext context )
+    {
+        MoveDirection = context.ReadValue<Vector2>();
+        
+        if ( MoveInput != null )
+        {
+            MoveInput.Execute();
+        }
     }
 
     void OnJumpButton( InputAction.CallbackContext context )
     {
-        Debug.Log( $"Jump button pressed,{context.ReadValue<float>()}" );
         IsPressingJump = context.ReadValue<float>() >= .2f;
 
-        if ( JumpInput != null )
+        if ( MoveInput != null )
         {
-            JumpInput.Execute();
+            MoveInput.Execute();
         }
     }
 }
