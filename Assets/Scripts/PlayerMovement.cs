@@ -74,6 +74,22 @@ public class PlayerMovement : MonoBehaviour
     {
         direction = obj.ReadValue<Vector2>();
         Rigidbody2D.velocity = new Vector2(direction.x * Speed  , Rigidbody2D.velocity.y);
+        IsMoving = Math.Abs( direction.x ) > .1f;
+        StartCoroutine( SetVelocity() );
+    }
+
+    IEnumerator SetVelocity()
+    {
+        while ( true )
+        {
+            Rigidbody2D.velocity = new Vector2(direction.x * Speed  , Rigidbody2D.velocity.y);
+            yield return new WaitForEndOfFrame();
+
+            if ( !IsMoving )
+            {
+                yield break;
+            }
+        }
     }
     
 
