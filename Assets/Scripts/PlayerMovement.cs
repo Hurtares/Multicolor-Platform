@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
     const float Speed = 10;
     const float JumpStrength = 500;
 
+    string[] layers = new string[]
+    {
+        "Red", "Green", "Blue"
+    };
+
     void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -24,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Enable();
         inputActions.Player.Movement.performed += OnMovementInput;
         inputActions.Player.Jump.performed += OnJumpInput;
+        inputActions.Player.ChangeRed.performed += _ => OnColorInput("Red");
+        inputActions.Player.ChangeGreen.performed += _ => OnColorInput("Green");
+        inputActions.Player.ChangeBlue.performed += _ => OnColorInput("Blue");
     }
 
 
@@ -31,7 +41,28 @@ public class PlayerMovement : MonoBehaviour
     {
         inputActions.Player.Movement.performed -= OnMovementInput;
         inputActions.Player.Jump.performed -= OnJumpInput;
+        inputActions.Player.ChangeRed.performed -= _ => OnColorInput("Red");
+        inputActions.Player.ChangeGreen.performed -= _ => OnColorInput("Green");
+        inputActions.Player.ChangeBlue.performed -= _ => OnColorInput("Blue");
         inputActions.Disable();
+    }
+    
+    void OnColorInput( string color )
+    {
+        gameObject.layer = LayerMask.NameToLayer(color);
+
+        if ( color == "Blue" )
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+            return;
+        }else if ( color == "Red"  )
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+            return;
+        }
+        
+        GetComponent<SpriteRenderer>().color = Color.green;
+        
     }
     
     void OnJumpInput( InputAction.CallbackContext obj )

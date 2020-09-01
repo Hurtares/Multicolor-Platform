@@ -33,6 +33,30 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeRed"",
+                    ""type"": ""Button"",
+                    ""id"": ""9b957431-0adf-441c-98f0-5a4f59248781"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeGreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""684c8682-a038-419e-807d-721661152894"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeBlue"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b4e0f47-3d6b-4ab5-8263-98de6dde6148"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -156,6 +180,39 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e0d3754-8c2e-4bf6-afca-31a79b180d89"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeRed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ecba05f-39ed-42ff-a205-b47bd2754ca5"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeBlue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3623c020-3566-4e31-8c6d-2b5e947ccdea"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeGreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +223,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_ChangeRed = m_Player.FindAction("ChangeRed", throwIfNotFound: true);
+        m_Player_ChangeGreen = m_Player.FindAction("ChangeGreen", throwIfNotFound: true);
+        m_Player_ChangeBlue = m_Player.FindAction("ChangeBlue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -217,12 +277,18 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_ChangeRed;
+    private readonly InputAction m_Player_ChangeGreen;
+    private readonly InputAction m_Player_ChangeBlue;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @ChangeRed => m_Wrapper.m_Player_ChangeRed;
+        public InputAction @ChangeGreen => m_Wrapper.m_Player_ChangeGreen;
+        public InputAction @ChangeBlue => m_Wrapper.m_Player_ChangeBlue;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +304,15 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @ChangeRed.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeRed;
+                @ChangeRed.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeRed;
+                @ChangeRed.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeRed;
+                @ChangeGreen.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeGreen;
+                @ChangeGreen.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeGreen;
+                @ChangeGreen.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeGreen;
+                @ChangeBlue.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeBlue;
+                @ChangeBlue.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeBlue;
+                @ChangeBlue.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeBlue;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -248,6 +323,15 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @ChangeRed.started += instance.OnChangeRed;
+                @ChangeRed.performed += instance.OnChangeRed;
+                @ChangeRed.canceled += instance.OnChangeRed;
+                @ChangeGreen.started += instance.OnChangeGreen;
+                @ChangeGreen.performed += instance.OnChangeGreen;
+                @ChangeGreen.canceled += instance.OnChangeGreen;
+                @ChangeBlue.started += instance.OnChangeBlue;
+                @ChangeBlue.performed += instance.OnChangeBlue;
+                @ChangeBlue.canceled += instance.OnChangeBlue;
             }
         }
     }
@@ -256,5 +340,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnChangeRed(InputAction.CallbackContext context);
+        void OnChangeGreen(InputAction.CallbackContext context);
+        void OnChangeBlue(InputAction.CallbackContext context);
     }
 }

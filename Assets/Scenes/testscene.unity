@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 1542814150}
   - component: {fileID: 1542814149}
   - component: {fileID: 1542814148}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: greenFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1147,7 +1147,7 @@ GameObject:
   - component: {fileID: 2034514344}
   - component: {fileID: 2034514343}
   - component: {fileID: 2034514342}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: blueFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2304,6 +2304,11 @@ PrefabInstance:
     - target: {fileID: 8162935858145765662, guid: 66dd4bb66e5d2ea448645817f4f1d338,
         type: 3}
       propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162935858145765663, guid: 66dd4bb66e5d2ea448645817f4f1d338,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
