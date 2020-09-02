@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
     void OnMovementInput( InputAction.CallbackContext obj )
     {
         direction = obj.ReadValue<Vector2>();
-        Rigidbody2D.velocity = new Vector2(direction.x * Speed  , Rigidbody2D.velocity.y);
         IsMoving = Math.Abs( direction.x ) > .1f;
         StartCoroutine( SetVelocity() );
     }
@@ -91,6 +90,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    
 
+    void OnCollisionEnter2D( Collision2D other )
+    {
+        if ( other.gameObject.CompareTag( "Enemy" ) )
+        {
+            transform.position = new Vector3(-10,0,0);
+        }
+    }
 }
