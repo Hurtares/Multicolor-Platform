@@ -35,28 +35,20 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ChangeRed"",
+                    ""name"": ""PreviousColor"",
                     ""type"": ""Button"",
-                    ""id"": ""9b957431-0adf-441c-98f0-5a4f59248781"",
+                    ""id"": ""96372607-b63a-4d0e-85a5-af77aad8a53b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""ChangeGreen"",
+                    ""name"": ""NextColor"",
                     ""type"": ""Button"",
-                    ""id"": ""684c8682-a038-419e-807d-721661152894"",
+                    ""id"": ""d9c7b16d-983b-4e54-b2d7-cb0cbbddd1d9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""ChangeBlue"",
-                    ""type"": ""Button"",
-                    ""id"": ""0b4e0f47-3d6b-4ab5-8263-98de6dde6148"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -326,67 +318,67 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9e0d3754-8c2e-4bf6-afca-31a79b180d89"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeRed"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3df1fe2c-b520-4931-884e-754abb07eaf9"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeRed"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6ecba05f-39ed-42ff-a205-b47bd2754ca5"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeBlue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""336a2fc5-ea9b-4d4d-8e89-e6f6b8a98a05"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeBlue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3623c020-3566-4e31-8c6d-2b5e947ccdea"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeGreen"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b49de0d7-ce04-4647-85f9-f09035ce9f14"",
+                    ""id"": ""3760b534-2a2b-4486-978d-e1bf59da54c5"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeGreen"",
+                    ""action"": ""NextColor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26d3affc-1fe5-4123-b07d-94b848c6f29d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextColor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b656dce9-3275-468c-bece-4db9f7ac2842"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextColor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68ffcdb1-ab7f-48e0-9572-08d79bbd40f9"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousColor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ffcc431-a574-4cf1-a9e1-7ee89541997c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousColor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f43d84b0-f23f-41fa-adc0-95b7b88f6658"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousColor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -399,9 +391,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_ChangeRed = m_Player.FindAction("ChangeRed", throwIfNotFound: true);
-        m_Player_ChangeGreen = m_Player.FindAction("ChangeGreen", throwIfNotFound: true);
-        m_Player_ChangeBlue = m_Player.FindAction("ChangeBlue", throwIfNotFound: true);
+        m_Player_PreviousColor = m_Player.FindAction("PreviousColor", throwIfNotFound: true);
+        m_Player_NextColor = m_Player.FindAction("NextColor", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -453,18 +444,16 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_ChangeRed;
-    private readonly InputAction m_Player_ChangeGreen;
-    private readonly InputAction m_Player_ChangeBlue;
+    private readonly InputAction m_Player_PreviousColor;
+    private readonly InputAction m_Player_NextColor;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @ChangeRed => m_Wrapper.m_Player_ChangeRed;
-        public InputAction @ChangeGreen => m_Wrapper.m_Player_ChangeGreen;
-        public InputAction @ChangeBlue => m_Wrapper.m_Player_ChangeBlue;
+        public InputAction @PreviousColor => m_Wrapper.m_Player_PreviousColor;
+        public InputAction @NextColor => m_Wrapper.m_Player_NextColor;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -480,15 +469,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @ChangeRed.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeRed;
-                @ChangeRed.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeRed;
-                @ChangeRed.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeRed;
-                @ChangeGreen.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeGreen;
-                @ChangeGreen.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeGreen;
-                @ChangeGreen.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeGreen;
-                @ChangeBlue.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeBlue;
-                @ChangeBlue.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeBlue;
-                @ChangeBlue.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeBlue;
+                @PreviousColor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPreviousColor;
+                @PreviousColor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPreviousColor;
+                @PreviousColor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPreviousColor;
+                @NextColor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextColor;
+                @NextColor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextColor;
+                @NextColor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextColor;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -499,15 +485,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @ChangeRed.started += instance.OnChangeRed;
-                @ChangeRed.performed += instance.OnChangeRed;
-                @ChangeRed.canceled += instance.OnChangeRed;
-                @ChangeGreen.started += instance.OnChangeGreen;
-                @ChangeGreen.performed += instance.OnChangeGreen;
-                @ChangeGreen.canceled += instance.OnChangeGreen;
-                @ChangeBlue.started += instance.OnChangeBlue;
-                @ChangeBlue.performed += instance.OnChangeBlue;
-                @ChangeBlue.canceled += instance.OnChangeBlue;
+                @PreviousColor.started += instance.OnPreviousColor;
+                @PreviousColor.performed += instance.OnPreviousColor;
+                @PreviousColor.canceled += instance.OnPreviousColor;
+                @NextColor.started += instance.OnNextColor;
+                @NextColor.performed += instance.OnNextColor;
+                @NextColor.canceled += instance.OnNextColor;
             }
         }
     }
@@ -516,8 +499,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnChangeRed(InputAction.CallbackContext context);
-        void OnChangeGreen(InputAction.CallbackContext context);
-        void OnChangeBlue(InputAction.CallbackContext context);
+        void OnPreviousColor(InputAction.CallbackContext context);
+        void OnNextColor(InputAction.CallbackContext context);
     }
 }

@@ -13,12 +13,14 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 direction;
     bool IsMoving;
+    string currentColor= "Blue";
     const float Speed = 10;
     const float JumpStrength = 500;
 
-    string[] layers = new string[]
+    List<string> colors = new List<string>()
     {
         "Red", "Green", "Blue"
+        
     };
 
     void Awake()
@@ -29,38 +31,27 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable()
     {
         inputActions.Enable();
-        inputActions.Player.ChangeRed.performed += _ => OnColorInput("Red");
-        inputActions.Player.ChangeGreen.performed += _ => OnColorInput("Green");
-        inputActions.Player.ChangeBlue.performed += _ => OnColorInput("Blue");
     }
-
 
     void OnDisable()
     {
-        inputActions.Player.ChangeRed.performed -= _ => OnColorInput("Red");
-        inputActions.Player.ChangeGreen.performed -= _ => OnColorInput("Green");
-        inputActions.Player.ChangeBlue.performed -= _ => OnColorInput("Blue");
         inputActions.Disable();
     }
-    
-    void OnColorInput( string color )
-    {
-        gameObject.layer = LayerMask.NameToLayer(color);
 
-        if ( color == "Blue" )
-        {
-            GetComponent<SpriteRenderer>().color = Color.blue;
-            return;
-        }else if ( color == "Red"  )
-        {
-            GetComponent<SpriteRenderer>().color = Color.red;
-            return;
-        }
-        
-        GetComponent<SpriteRenderer>().color = Color.green;
-        
+    void OnPreviousColor()
+    {
+        int index = colors.IndexOf( currentColor );
+        SetColor(colors[ (index + 2) % 3]);
+        Debug.Log("hhsdh");
     }
     
+    void OnNextColor()
+    {
+        int index = colors.IndexOf( currentColor );
+        SetColor(colors[(index + 1) % 3]);
+        Debug.Log("hhsdh2");
+    }
+
     void OnJump( )
     {
         Rigidbody2D.AddForce(Vector2.up * JumpStrength);
@@ -68,11 +59,28 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMovement(InputValue value )
     {
-        //this.direction = direction;
-        Debug.Log("OnMovement" );
         direction = value.Get<Vector2>();
         IsMoving = Math.Abs( direction.x ) > .1f;
         StartCoroutine( SetVelocity() );
+    }
+    
+    void SetColor( string color )
+    {
+        gameObject.layer = LayerMask.NameToLayer(color);
+        
+        if ( color == "Blue" )
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+            currentColor = color;
+            return;
+        }else if ( color == "Red"  )
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+            currentColor = color;
+            return;
+        }
+        GetComponent<SpriteRenderer>().color = Color.green;
+        currentColor = color;
     }
 
     IEnumerator SetVelocity()
