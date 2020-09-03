@@ -29,8 +29,6 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable()
     {
         inputActions.Enable();
-        inputActions.Player.Movement.performed += OnMovementInput;
-        inputActions.Player.Jump.performed += OnJumpInput;
         inputActions.Player.ChangeRed.performed += _ => OnColorInput("Red");
         inputActions.Player.ChangeGreen.performed += _ => OnColorInput("Green");
         inputActions.Player.ChangeBlue.performed += _ => OnColorInput("Blue");
@@ -39,8 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
     void OnDisable()
     {
-        inputActions.Player.Movement.performed -= OnMovementInput;
-        inputActions.Player.Jump.performed -= OnJumpInput;
         inputActions.Player.ChangeRed.performed -= _ => OnColorInput("Red");
         inputActions.Player.ChangeGreen.performed -= _ => OnColorInput("Green");
         inputActions.Player.ChangeBlue.performed -= _ => OnColorInput("Blue");
@@ -65,14 +61,16 @@ public class PlayerMovement : MonoBehaviour
         
     }
     
-    void OnJumpInput( InputAction.CallbackContext obj )
+    void OnJump( )
     {
         Rigidbody2D.AddForce(Vector2.up * JumpStrength);
     }
 
-    void OnMovementInput( InputAction.CallbackContext obj )
+    void OnMovement(InputValue value )
     {
-        direction = obj.ReadValue<Vector2>();
+        //this.direction = direction;
+        Debug.Log("OnMovement" );
+        direction = value.Get<Vector2>();
         IsMoving = Math.Abs( direction.x ) > .1f;
         StartCoroutine( SetVelocity() );
     }
