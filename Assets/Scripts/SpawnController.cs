@@ -11,6 +11,6 @@ public class SpawnController : MonoBehaviour
     void OnPlayerJoined(PlayerInput input)
     {
         Debug.Log("joined");
-        TargetGroup.AddMember(input.gameObject.transform, 1, 4 );
+        TargetGroup.AddMember(input.gameObject.transform, 1, 9 );
     }
 }

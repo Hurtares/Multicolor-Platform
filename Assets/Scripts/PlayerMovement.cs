@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnJump()
 	{
+		if ( Rigidbody2D.velocity.y >= 5 || transform.position.y > 20 )
+		{
+			return;
+		}
 		Rigidbody2D.AddForce( Vector2.up * JumpStrength );
 	}
 

@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="height: 131px;">
+        <ui:Label text="Label" display-tooltip-when-elided="True" style="font-size: 66px; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>
